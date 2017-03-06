@@ -4,7 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
+// import LoginForm from './components/LoginForm';
+import Router from './router';
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
       databaseURL: 'https://manager-ab85b.firebaseio.com',
       storageBucket: 'manager-ab85b.appspot.com',
       messagingSenderId: '75845354912'
-    };
+    }; 
 
     firebase.initializeApp(config);
   }
@@ -25,7 +26,7 @@ class App extends Component {
 
     return(
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
     );
   }
