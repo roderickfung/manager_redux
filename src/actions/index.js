@@ -37,7 +37,9 @@ export const loginUser = ({ email, password }) => {
 
 const loginUserSuccess = (dispatch, user) => {
   dispatch({ type: LOGIN_USER_SUCCESS, payload: user });
-  Actions.employeeList();  
+
+  Actions.main();
+  // gatcha: action.employeeList to navigate to the scene, we cannot navi to nested scene when moving to different buckets.
 };
 
 const loginUserFail = (dispatch) => {

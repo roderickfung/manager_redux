@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Button, Spinner } from './common';
+import { Card, CardSection, CardItem, Button, Spinner, Input } from 'native-base';
+// import { Card, CardSection, Input, Button, Spinner } from './common';
+
 
 class LoginForm extends Component {
 
@@ -25,7 +27,7 @@ class LoginForm extends Component {
     }
     return (
       <Button onPress={ this.onButtonPress.bind(this) }>
-        Login
+        <Text>Login</Text>
       </Button>
     );
   }
@@ -33,16 +35,16 @@ class LoginForm extends Component {
   render() {
     return(
       <Card>
-        <CardSection>
+        <CardItem>
           <Input
             value={ this.props.email }
             label="Email"
             placeholder="email@email.com"
             onChangeText={this.onEmailChange.bind(this)}
           />
-        </CardSection>
+        </CardItem>
 
-        <CardSection>
+        <CardItem>
           <Input
             value={ this.props.password }
             password
@@ -50,13 +52,13 @@ class LoginForm extends Component {
             placeholder="password"
             onChangeText={this.onPasswordChange.bind(this)}
           />
-        </CardSection>
+        </CardItem>
         <Text style={styles.errorTextStyle}>
           { this.props.error }
         </Text>
-        <CardSection>
+        <CardItem>
           { this.renderButton() }
-        </CardSection>
+        </CardItem>
       </Card>
     );
   }
